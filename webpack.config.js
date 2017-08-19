@@ -7,7 +7,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const bootstrapEntryPoints = require('./webpack.bootstrap.config');
 
 const extractPlugin = new ExtractTextPlugin({
-  filename: '[name].css'
+  filename: '[name].css',
+  allChunks: true,
 });
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const SRC_DIR = path.resolve(__dirname, 'app');
