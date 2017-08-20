@@ -8,7 +8,7 @@ const bootstrapEntryPoints = require('./webpack.bootstrap.config');
 
 const extractPlugin = new ExtractTextPlugin({
   filename: '[name].css',
-  allChunks: true,
+  // allChunks: true,
 });
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const SRC_DIR = path.resolve(__dirname, 'app');
