@@ -14,7 +14,7 @@ export class Todo extends React.Component {
 
   updateTodos(text){
     let updateTodolist = this.state.todolist;
-    updateTodolist.push(text);
+    updateTodolist.unshift(text);
     this.setState({todolist: updateTodolist});
     this.updateTodoSTorage(updateTodolist);
   }

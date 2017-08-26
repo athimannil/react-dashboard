@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Todo } from './Todo/Todo';
 
-var todolist = ['first task', 'second task', 'Final tassk'];
+// var todolist = ['first task', 'second task', 'Final tassk'];
+var todolist = [];
 var storedTodos = localStorage.getItem('storedTodos');
 
 if (storedTodos) {
