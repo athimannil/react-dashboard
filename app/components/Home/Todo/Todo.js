@@ -9,17 +9,29 @@ export class Todo extends React.Component {
     super();
     this.state = { todolist: props.todos };
     this.updateTodos = this.updateTodos.bind(this);
+    this.deleteTodo = this.deleteTodo.bind(this);
   }
 
   updateTodos(text){
-    var updateTodolist = this.state.todolist;
+    let updateTodolist = this.state.todolist;
     updateTodolist.push(text);
     this.setState({todolist: updateTodolist});
   }
 
+  deleteTodo(elem){
+    let value = elem.target.parentNode.querySelector('span').innerText;
+    let updateTodolist = this.state.todolist;
+    updateTodolist.splice(updateTodolist.indexOf(value), 1);
+    this.setState({todolist: updateTodolist});
+  }
+
+  // <a className="pull-right" onClick={this.deleteTodo}>x <i className="glyphicon glyphicon-trash"></i></a>
   render() {
     var todos = this.state.todolist.map((elem, i) => {
-      return <li className="list-group-item" key={i}>{elem}</li>;
+      return <li className="list-group-item" key={i}>
+        <span>{elem}</span>
+        <a className="pull-right" onClick={this.deleteTodo}>X</a>
+      </li>;
     });
     return (
       <ul className="list-group">
