@@ -16,6 +16,7 @@ export class Todo extends React.Component {
     let updateTodolist = this.state.todolist;
     updateTodolist.push(text);
     this.setState({todolist: updateTodolist});
+    this.updateTodoSTorage(updateTodolist);
   }
 
   deleteTodo(elem){
@@ -23,6 +24,12 @@ export class Todo extends React.Component {
     let updateTodolist = this.state.todolist;
     updateTodolist.splice(updateTodolist.indexOf(value), 1);
     this.setState({todolist: updateTodolist});
+    this.updateTodoSTorage(updateTodolist);
+  }
+
+  updateTodoSTorage(updateTodolist) {
+    console.log('update my storage ', updateTodolist);
+    localStorage.setItem('storedTodos', JSON.stringify(updateTodolist));
   }
 
   // <a className="pull-right" onClick={this.deleteTodo}>x <i className="glyphicon glyphicon-trash"></i></a>
