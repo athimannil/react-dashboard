@@ -16,13 +16,25 @@ export class Addtodo extends React.Component {
 
   render(){
     return (
-      <form className="input-group" onSubmit={this.todoSubmit}>
-        <input type="text" className="form-control" ref="login" />
-        <span className="input-group-btn">
-          <button className="btn btn-primary" type="submit">
-            <i className="glyphicon glyphicon-plus"></i>
-          </button>
-        </span>
+      <form onSubmit={this.todoSubmit}>
+        <div className="form-group">
+          <label>Task</label>
+          <input type="text" className="form-control" />
+        </div>
+        <div className="form-group">
+          <label>Description</label>
+          <textarea className="form-control" placeholder="Details"></textarea>
+        </div>
+        <div className="row">
+          <div className="col-md-8">
+            <label>Date</label>
+            <input type="date" className="form-control" />
+          </div>
+          <div className="col-md-4">
+            <label for="">&nbsp;</label>
+            <input type="submit" className="btn btn-primary btn-block" value="New task" />
+          </div>
+        </div>
       </form>
     );
   }
