@@ -8,10 +8,11 @@ export class Addtodo extends React.Component {
 
   todoSubmit(event) {
     event.preventDefault();
-    let input = event.target.querySelector('input');
-    let value = input.value;
-    input.value = '';
-    value ? this.props.updateTodo(value) : '';
+    console.log(this);
+    // let input = event.target.querySelector('input');
+    // let value = input.value;
+    // input.value = '';
+    // value ? this.props.updateTodo(value) : '';
   }
 
   render(){
@@ -19,7 +20,11 @@ export class Addtodo extends React.Component {
       <form onSubmit={this.todoSubmit}>
         <div className="form-group">
           <label>Task</label>
-          <input type="text" className="form-control" />
+          <input
+            type="text"
+            className="form-control"
+            ref="kooy"
+          />
         </div>
         <div className="form-group">
           <label>Description</label>
