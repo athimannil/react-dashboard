@@ -6,13 +6,16 @@ export class Addtodo extends React.Component {
     this.todoSubmit = this.todoSubmit.bind(this);
   }
 
-  todoSubmit(event) {
-    event.preventDefault();
-    console.log(this);
-    // let input = event.target.querySelector('input');
-    // let value = input.value;
-    // input.value = '';
-    // value ? this.props.updateTodo(value) : '';
+  todoSubmit(e) {
+  // todoSubmit = (e) => {
+    e.preventDefault();
+    const payload = {
+      name: this.task.value,
+      details: this.description.value,
+      date: this.date.value,
+      done: false
+    };
+    this.props.updateTodo(payload);
   }
 
   render(){
@@ -22,21 +25,35 @@ export class Addtodo extends React.Component {
           <label>Task</label>
           <input
             type="text"
+            name="task"
             className="form-control"
-            ref="kooy"
+            required
+            ref={input => this.task = input}
           />
         </div>
         <div className="form-group">
           <label>Description</label>
-          <textarea className="form-control" placeholder="Details"></textarea>
+          <textarea
+            className="form-control"
+            name="description"
+            placeholder="Details"
+            required
+            ref={textarea => this.description = textarea}
+          ></textarea>
         </div>
         <div className="row">
           <div className="col-md-8">
             <label>Date</label>
-            <input type="date" className="form-control" />
+            <input
+              type="date"
+              name="date"
+              className="form-control"
+              required
+              ref={input => this.date = input}
+            />
           </div>
           <div className="col-md-4">
-            <label for="">&nbsp;</label>
+            <label>&nbsp;</label>
             <input type="submit" className="btn btn-primary btn-block" value="New task" />
           </div>
         </div>
